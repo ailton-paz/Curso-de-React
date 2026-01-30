@@ -3,11 +3,21 @@ import AddTasks from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
 function App() {
-const [tasks, setTasks] = useState([{
-  id: 1
-  title: "Estudar CSS"
-  description: "É preciso estudar estilizações em CSS"
-  isCompleted: false
+const [tarefas, setTasks] = useState([{
+  id: 1,
+  title: "Estudar CSS",
+  description: "É preciso estudar estilizações em CSS",
+  isCompleted: false,
+}, {
+  id: 2,
+  title: "Estudar TailWind",
+  description: "É preciso estudar estilizações em CSS",
+  isCompleted: false,
+}, {
+  id: 3,
+  title: "Estudar React",
+  description: "É preciso estudar estilizações em CSS",
+  isCompleted: false,
 }])
 
 
@@ -17,7 +27,7 @@ const [tasks, setTasks] = useState([{
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas</h1>
         <AddTasks />
-        <Tasks />
+        <Tasks tarefas={tarefas}/>
       </div>
     </div>
   )
