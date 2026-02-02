@@ -1,10 +1,16 @@
 function Tasks(props) {
-    return (
-    <ul className="space-y-4">
-        {props.tarefas.map((tarefa) => 
-        <li key={tarefa.id} className="bg-slate-400 p-2 text-white rounded-md">{tarefa.title}</li>)}
+  return (
+    <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
+      {props.tarefas.map((tarefa) => (
+        <li key={tarefa.id}>
+          <button className="bg-slate-400 p-2 w-full text-white rounded-md">
+            {tarefa.title}
+          </button>
+          <button>Ver detalhes</button>
+        </li>
+      ))}
     </ul>
-    )
+  );
 }
 
-export default Tasks
+export default Tasks;
