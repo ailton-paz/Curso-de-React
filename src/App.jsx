@@ -20,6 +20,16 @@ const [tarefas, setTasks] = useState([{
   isCompleted: false,
 }])
 
+function onTaskClick(taskId) {
+  const newTasks = tarefas.map((tarefas) => {
+
+     if (taskId === tarefas.id) {
+      return { ...tarefas, isCompleted: !tarefas.isCompleted }
+    }
+    return tarefas;
+  })
+  setTasks(newTasks);
+}
 
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
@@ -27,7 +37,7 @@ const [tarefas, setTasks] = useState([{
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas</h1>
         <AddTasks />
-        <Tasks tarefas={tarefas}/>
+        <Tasks tarefas={tarefas} onTaskClick={onTaskClick}/>
       </div>
     </div>
   )
