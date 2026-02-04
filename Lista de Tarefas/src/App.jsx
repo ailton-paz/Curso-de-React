@@ -3,7 +3,7 @@ import AddTasks from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
 function App() {
-const [tarefas, setTasks] = useState([{
+const [listaTarefas, setListaTarefas] = useState([{
   id: 1,
   title: "Estudar CSS",
   description: "É preciso estudar estilizações em CSS",
@@ -20,15 +20,15 @@ const [tarefas, setTasks] = useState([{
   isCompleted: false,
 }])
 
-function onTaskClick(taskId) {
-  const newTasks = tarefas.map((tarefas) => {
+function aoClicarTarefa(idTarefa) {
+  const segundaLista = listaTarefas.map((tarefas) => {
 
-     if (taskId === tarefas.id) {
+     if (idTarefa === tarefas.id) {
       return { ...tarefas, isCompleted: !tarefas.isCompleted }
     }
     return tarefas;
   })
-  setTasks(newTasks);
+  setListaTarefas(segundaLista);
 }
 
   return (
@@ -37,7 +37,7 @@ function onTaskClick(taskId) {
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Gerenciador de Tarefas</h1>
         <AddTasks />
-        <Tasks tarefas={tarefas} onTaskClick={onTaskClick}/>
+        <Tasks listaTarefas={listaTarefas} aoClicarTarefa={aoClicarTarefa}/>
       </div>
     </div>
   )
