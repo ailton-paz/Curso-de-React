@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "lucide-react";
+import { CheckCheck, ChevronDown, ChevronFirst, ChevronRightIcon, Heading1, TrashIcon } from "lucide-react";
 
 function Tasks(props) {
   return (
@@ -9,12 +9,18 @@ function Tasks(props) {
 
           <button 
           onClick={() => props.aoClicarTarefa(tarefa.id)} 
-          className={"bg-slate-400 p-2 w-full text-white rounded-md" + (tarefa.isCompleted ? " line-through" : "")}>
+          className={"bg-slate-400 p-2 w-full text-white rounded-md text-left" + (tarefa.isCompleted ? " line-through" : "")}>
             {tarefa.title}
           </button>
 
           <button className="bg-slate-400 p-2 rounded-md text-white">
             <ChevronRightIcon />
+          </button>
+
+          <button 
+          onClick={() => props.deleteTask(tarefa.id)}
+          className="bg-slate-400 p-2 rounded-md text-white">
+            <TrashIcon />
           </button>
         
         </li>
